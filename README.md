@@ -11,7 +11,7 @@
       <img style="width:100%" src="teaser.png">
  </div>
 
- <h1>R-Bench: Are your Large Multimodel Model Robust to Real-world Corruption?</h1>
+ <h1>R-Bench: Are your Large Multimodal Model Robust to Real-world Corruption?</h1>
 
  _a benchmark focused on the Real-world Robustness of LMMs_
 
