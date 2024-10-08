@@ -16,8 +16,8 @@
       Jianbo Zhang<sup>1</sup>,
       <a href="https://zzc-1998.github.io/" target="_blank">Zicheng Zhang</a><sup>1</sup>,
       <a href="https://teowu.github.io/" target="_blank">Haoning Wu</a><sup>2</sup>,
-      <a href="https://scholar.google.com/citations?hl=en&user=Kzd0qtsAAAAJ/" target="_blank">Yuan Tian</a><sup>1</sup>,
-      <a href="https://scholar.google.com/citations?user=nDlEBJ8AAAAJ&hl=en/" target="_blank">Wei Sun</a><sup>1</sup>,
+      <a href="https://scholar.google.com/citations?user=Kzd0qtsAAAAJ&hl/" target="_blank">Yuan Tian</a><sup>1</sup>,
+      <a href="https://scholar.google.com/citations?user=nDlEBJ8AAAAJ&hl/" target="_blank">Wei Sun</a><sup>1</sup>,
  </div>
 
  <div>
