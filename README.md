@@ -7,17 +7,13 @@
   <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><img src="https://img.shields.io/badge/Data-Release-green"></a>
  </div>
 
- <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:100%" src="teaser.png">
- </div>
-
  <h1>R-Bench: Are your Large Multimodal Model Robust to Real-world Corruption?</h1>
 
  _a benchmark focused on the Real-world Robustness of LMMs_
 
  <div>
       <a href="https://lcysyzxdxc.github.io" target="_blank">Chunyi Li</a><sup>1</sup>,
-      <a href="https://lcysyzxdxc.github.io" target="_blank">Jianbo Zhang</a><sup>1</sup>,
+      Jianbo Zhang<sup>1</sup>,
       <a href="https://zzc-1998.github.io/" target="_blank">Zicheng Zhang</a><sup>1</sup>,
       <a href="https://teowu.github.io/" target="_blank">Haoning Wu</a><sup>2</sup>,
       <a href="https://scholar.google.com/citations?hl=en&user=Kzd0qtsAAAAJ/" target="_blank">Yuan Tian</a><sup>1</sup>,
