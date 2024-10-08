@@ -8,12 +8,12 @@
  </div>
 
  <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:100%" src="fig/teaser.png">
+      <img style="width:100%" src="teaser.png">
  </div>
 
  <h1>R-Bench: Are your Large Multimodel Model Robust to Real-world Corruption?</h1>
 
- _Using large Multimodal Models for Cross Modality Compression_
+ _a benchmark focused on the Real-world Robustness of LMMs_
 
  <div>
       <a href="https://lcysyzxdxc.github.io" target="_blank">Chunyi Li</a><sup>1</sup>,
@@ -34,11 +34,11 @@
  <div>
   <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>01 AI,  <sup>3</sup>Nanyang Technological University
  </div> 
- <a href="https://arxiv.org/pdf/2406.09356"><strong>Paper</strong></a> |
+ <a href="https://github.com/Q-Future/R-Bench/blob/main/R_Bench_Preview.pdf"><strong>Paper</strong></a> |
  <a href="https://github.com/Q-Future/R-Bench"><strong>Project Page</strong></a> |
  <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><strong>Data</strong></a> 
  <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:60%" src="fig/spotlight.png">
+      <img style="width:60%" src="spotlight.png">
  </div>
 </div>
 
