@@ -1,4 +1,4 @@
-<font color=red> **Under construction, will be released in tomorrow evening**</font>
+<table><tr><td bgcolor=green> Under construction, will be released in tomorrow evening</td></tr></table>
 
 <div align="center">
     
