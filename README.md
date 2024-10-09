@@ -48,16 +48,14 @@
 
 ## Construction
 
-<div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:80%" src="figs/DataVis.png">
+<div style="width: 80%; text-align: center; margin:auto;">
+      <img style="width:100%" src="figs/DataVis.png">
 </div>
 
 **Reference Image：** To comprehensively characterize image data from the real world, we collect high-quality reference data and then add corruption to obtain distorted images. The selection of references is based on three principles: (1) Diversity: The data must contain different subjects, backgrounds, styles, etc. (2) Reality: The images must come from natural scenes, such as UGC taken by average users. (3) Quality: As high-quality reference information, the images must not already be distorted.
 
 **Distorted Image：** We considered **33 common corruption** scenarios in the real world as dimensions for our benchmark. Into:
-- **7 steps** from capturing to receiving: Environment Interference (EI), Camera Interference (CI), Analog-to-Digital (AD), Source Encoding (SE), Channel Transmission (CT), Receiver Decoding (RD), and Enhancement Postprocess (EP). and 
-- **7 groups** from low level vision:  Blur, Luminance, Chrominance, Spatial, Noise, Compression, and the in-the-wild corruption.
-- **3 levels** from corruption strength: low, mid, high.
+(1) 7 steps from capturing to receiving: Environment Interference (EI), Camera Interference (CI), Analog-to-Digital (AD), Source Encoding (SE), Channel Transmission (CT), Receiver Decoding (RD), and Enhancement Postprocess (EP). (2) 7 groups from low level vision: Blur, Luminance, Chrominance, Spatial, Noise, Compression, and the in-the-wild corruption. (3) 3 levels from corruption strength: low, mid, high.
 
 
 <div align="left">
