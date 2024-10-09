@@ -1,5 +1,3 @@
-<table><tr><td bgcolor=green> Under construction, will be released in tomorrow evening</td></tr></table>
-
 <div align="center">
     
     
@@ -12,6 +10,10 @@
  <h1>R-Bench: Are your Large Multimodal Model Robust to Real-world Corruption?</h1>
 
  _a benchmark focused on the Real-world Robustness of LMMs_
+
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:60%" src="figs/spotlight.png">
+</div>
 
  <div>
       <a href="https://lcysyzxdxc.github.io" target="_blank">Chunyi Li</a><sup>1</sup>,
@@ -35,9 +37,11 @@
  <a href="https://github.com/Q-Future/R-Bench/blob/main/R_Bench_Preview.pdf"><strong>Paper</strong></a> |
  <a href="https://github.com/Q-Future/R-Bench"><strong>Project Page</strong></a> |
  <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><strong>Data</strong></a> 
- <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:60%" src="spotlight.png">
- </div>
 </div>
+
+## Release
+- [2024/10/10] 🔥 Release the [technical report](https://www.arxiv.org/abs/2410.00000) for **R-Bench**. 
+- [2024/10/9] 🔥 Add support for [OpenCompass](https://github.com/open-compass/VLMEvalKit). Test your LMM robustness on MCQ task with one command.
+- [2024/10/8] 🔥 [Github repo](https://github.com/Q-Future/R-Bench-Video) for **R-Bench** is online. Check data from [Dataset Download](https://huggingface.co/datasets/lcysyzxdxc/R-Bench)!!
 
 <div align="left">
