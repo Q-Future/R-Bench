@@ -11,10 +11,6 @@
 
  _a benchmark focused on the Real-world Robustness of LMMs_
 
-<div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:60%" src="figs/spotlight.png">
-</div>
-
  <div>
       <a href="https://lcysyzxdxc.github.io" target="_blank">Chunyi Li</a><sup>1</sup>,
       Jianbo Zhang<sup>1</sup>,
@@ -39,9 +35,29 @@
  <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><strong>Data</strong></a> 
 </div>
 
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:100%" src="figs/spotlight.png">
+</div>
+
+**Why are LMMs excellent in benchmarks but limited in the real-world?**** Robustness is a crucial factor. In experiments, LMMs usually receive high-quality images, but in real-world scenarios that includes numerous corruption, such as object motion, lens blur, etc. If the robustness issue of LMMs can be solved, it may become as widly-used as single modality LLM, thus will bring tenfold convenience to daily human life. Therefore, we have established **R-Bench** to evaluate the robustness of LMMs in the real-world. R-Bench aims to test the resistance of different LMMs to corruptions and to identify the most significant corruptions affecting LMMs' performance, thereby pointing out optimization directions for future LMMs and helping them adapt to real-world images.
+
 ## Release
-- [2024/10/10] 🔥 Release the [technical report](https://www.arxiv.org/abs/2410.00000) for **R-Bench**. 
-- [2024/10/9] 🔥 Add support for [OpenCompass](https://github.com/open-compass/VLMEvalKit). Test your LMM robustness on MCQ task with one command.
-- [2024/10/8] 🔥 [Github repo](https://github.com/Q-Future/R-Bench-Video) for **R-Bench** is online. Check data from [Dataset Download](https://huggingface.co/datasets/lcysyzxdxc/R-Bench)!!
+<!-- - [2024/10/10] 🔥 Release the [technical report](https://www.arxiv.org/abs/2410.00000) for **R-Bench**.  -->
+<!-- - [2024/10/9] 🔥 Add support for [OpenCompass](https://github.com/open-compass/VLMEvalKit). Test your LMM robustness on MCQ task with one command. -->
+- [2024/10/9] 🔥 [Github repo](https://github.com/Q-Future/R-Bench) for **R-Bench** is online!! [Dataset Download](https://huggingface.co/datasets/lcysyzxdxc/R-Bench)
+
+## Construction
+
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:80%" src="figs/DataVis.png">
+</div>
+
+**Reference Image：** To comprehensively characterize image data from the real world, we collect high-quality reference data and then add corruption to obtain distorted images. The selection of references is based on three principles: (1) Diversity: The data must contain different subjects, backgrounds, styles, etc. (2) Reality: The images must come from natural scenes, such as UGC taken by average users. (3) Quality: As high-quality reference information, the images must not already be distorted.
+
+**Distorted Image：** We considered **33 common corruption** scenarios in the real world as dimensions for our benchmark. Into:
+- **7 steps** from capturing to receiving: Environment Interference (EI), Camera Interference (CI), Analog-to-Digital (AD), Source Encoding (SE), Channel Transmission (CT), Receiver Decoding (RD), and Enhancement Postprocess (EP). and 
+- **7 groups** from low level vision:  Blur, Luminance, Chrominance, Spatial, Noise, Compression, and the in-the-wild corruption.
+- **3 levels** from corruption strength: low, mid, high.
+
 
 <div align="left">
