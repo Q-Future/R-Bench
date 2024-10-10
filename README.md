@@ -3,7 +3,7 @@
     
  <div>
   <a href="https://github.com/lcysyzxdxc/"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FQ-Future%2FR-Bench&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
-  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/lcysyzxdxc/R-Bench"/></a>
+  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/Q-Future/R-Bench"/></a>
   <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><img src="https://img.shields.io/badge/Data-Release-green"></a>
  </div>
 
@@ -30,7 +30,7 @@
  <div>
   <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>01 AI,  <sup>3</sup>Nanyang Technological University
  </div> 
- <a href="https://www.arxiv.org/pdf/2410.05474"><strong>Paper</strong></a> |
+ <a href="https://www.arxiv.org/abs/2410.05474"><strong>Paper</strong></a> |
  <a href="https://github.com/Q-Future/R-Bench"><strong>Project Page</strong></a> |
  <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><strong>Data</strong></a> 
 </div>
@@ -92,9 +92,13 @@ GPT4o is fully superior to other models in each distortion step, with an overwhe
 | DeepseekVL        | 0.5706  | 0.5342  | 0.4756   | 0.5384  | 0.5164  | 0.4934   | **0.2540**  | **0.2341**  | 0.2089   | 0.4251  |
 | GeminiPro         | 0.6706  | 0.6211  | 0.5793   | 0.4640  | 0.4799  | 0.4510   | 0.1773  | 0.1874  | 0.1649   | 0.4219  |
 
-Above is a quick look of our benchmark. Please refer to our [preprint](https://www.arxiv.org/pdf/2410.05474) for full benchmark result.
+Additionally, we find that proprietary models outperform open-source models but still significantly lag behind humans, which are not yet ready for the real-world. Thus we welcome LMM developers to join R-Bench, extending their real-world applications. Above is a quick look of our benchmark. Please refer to our [preprint](https://www.arxiv.org/pdf/2410.05474) for full benchmark result.
 
 ## How to use
+
+### Inference (optional)
+
+
 
 
 
