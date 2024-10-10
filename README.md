@@ -3,7 +3,7 @@
     
  <div>
   <a href="https://github.com/lcysyzxdxc/"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FQ-Future%2FR-Bench&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
-  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/Q-Future/R-Bench"/></a>
+  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/lcysyzxdxc/R-Bench"/></a>
   <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><img src="https://img.shields.io/badge/Data-Release-green"></a>
  </div>
 
@@ -98,7 +98,60 @@ Additionally, we find that proprietary models outperform open-source models but 
 
 ### Inference (optional)
 
+First please download the dataset from [modelscope]():
 
+```
+from modelscope.msdatasets import MsDataset
+ms_dataset = MsDataset.load(
+            'R-Bench', namespace='lcysyzxdxc',
+            subset_name='default', split='test')
+```
+
+Each instance in your dataset should be like:
+
+```
+'name': 'MMBench_35.jpg',
+ 'question': "What's the function of the demonstrated object?",
+ 'choice': 'A.running; B.Play football; C.Play tennis; D.Play basketball',
+ 'answer': 'C',
+ 'type': 'MCQ',
+ 'distortion': 1,
+ 'strength': 2,
+ 'ref_image': ...
+ 'dis_image': ...
+```
+
+Then you may define a function based on `Your_LMM`. It shold generate answer from `ms_dataset` above:
+
+```
+question=ms_dataset[num]['question']
+choice=ms_dataset[num]['choice']
+task=ms_dataset[num]['type']
+byte=ms_dataset[num]['ref_image']['bytes']
+
+def inference(question,choice,task,byte):
+    
+    if task=='MCQ':
+        prompt = question + "\n" + choice +"\nAnswer with the option's letter from the given choices directly."
+    elif task=='VQA':
+        prompt = question+". Please answer no more than 10 words"
+    elif task=='CAP':
+        prompt =  "Please describe this image in general. Directly provide the description, do not include prefix like 'This image depicts'"
+    else:
+        raise ValueError('No task named'+task)
+        return
+                         
+    image_file = io.BytesIO(byte)
+    image = Image.open(image_file).convert('RGB')    
+
+    answer = Your_LMM(image=image,prompt=prompt)
+                         
+    return answer
+```
+
+And finally you will got `model_name+_ref.csv` and `model_name+_dis.csv`. Check the `R-Bench-Script.ipynb` code for detail. You are strongly recommended to test in your own environment beyond this script, at your convenience.
+
+### Evaluation 
 
 
 
