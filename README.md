@@ -208,6 +208,8 @@ The `msg` for MCQ/VQA/CAP task are:
 
 Your final result will be two table, representing absolute/relative robustness in multiple dimension. Like:
 
+|           |             |           |             |         |         |             |          |
+|-----------|-------------|-----------|-------------|---------|---------|-------------|----------|
 | Task:     | MCQ         | VQA       | CAP         |         |         |             |          |
 | Strength: | high        | mid       | low         |         |         |             |          |
 | Step:     | Environment | Camera    | Analog      | Source  | Channel | Receive     | Enhance  |
