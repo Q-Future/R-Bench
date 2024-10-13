@@ -3,7 +3,7 @@
     
  <div>
   <a href="https://github.com/lcysyzxdxc/"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FQ-Future%2FR-Bench&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false"/></a>
-  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/lcysyzxdxc/R-Bench"/></a>
+  <a href="https://github.com/Q-Future/R-Bench"><img src="https://img.shields.io/github/stars/Q-Future/R-Bench"/></a>
   <a href="https://huggingface.co/datasets/lcysyzxdxc/R-Bench"><img src="https://img.shields.io/badge/Data-Release-green"></a>
  </div>
 
@@ -42,8 +42,8 @@
 **Why are LMMs excellent in benchmarks but limited in the real-world?**** Robustness is a crucial factor. In experiments, LMMs usually receive high-quality images, but in real-world scenarios that includes numerous corruption, such as object motion, lens blur, etc. If the robustness issue of LMMs can be solved, it may become as widly-used as single modality LLM, thus will bring tenfold convenience to daily human life. Therefore, we have established **R-Bench** to evaluate the robustness of LMMs in the real-world. R-Bench aims to test the resistance of different LMMs to corruptions and to identify the most significant corruptions affecting LMMs' performance, thereby pointing out optimization directions for future LMMs and helping them adapt to real-world images.
 
 ## Release
+- [2024/10/12] 🔥 Add support for [OpenCompass](https://github.com/open-compass/VLMEvalKit). Test your LMM robustness on MCQ task with one command.
 - [2024/10/10] 🔥 Release the [technical report](https://www.arxiv.org/abs/2410.05474) for **R-Bench**. 
-<!-- - [2024/10/9] 🔥 Add support for [OpenCompass](https://github.com/open-compass/VLMEvalKit). Test your LMM robustness on MCQ task with one command. -->
 - [2024/10/9] 🔥 [Github repo](https://github.com/Q-Future/R-Bench) for **R-Bench** is online!! [Dataset Download](https://huggingface.co/datasets/lcysyzxdxc/R-Bench)
 
 ## Benchmark Infomation
@@ -96,9 +96,24 @@ Additionally, we find that proprietary models outperform open-source models but 
 
 ## How to use
 
-### Inference (optional)
+### Using VLMEvalKit
 
-First please download the dataset from [modelscope]():
+You may evaluate your LMM with one command! Please download [OpenCompass](https://github.com/open-compass/VLMEvalKit) and run:
+
+```
+git clone https://github.com/open-compass/VLMEvalKit.git
+cd VLMEvalKit
+pip install -e .
+python run.py --data R-Bench-Dis --model InternVL2-1B --verbose
+```
+
+**Noted this is only for R-Bench MCQ Section!** For full dataset please use the following steps.
+
+### Using our pipeline
+
+#### Inference (optional)
+
+First please download the dataset from [modelscope](https://www.modelscope.cn/datasets/lcysyzxdxc/R-Bench):
 
 ```
 from modelscope.msdatasets import MsDataset
@@ -151,8 +166,69 @@ def inference(question,choice,task,byte):
 
 And finally you will got `model_name+_ref.csv` and `model_name+_dis.csv`. Check the `R-Bench-Script.ipynb` code for detail. You are strongly recommended to test in your own environment beyond this script, at your convenience.
 
-### Evaluation 
+#### Evaluation
+
+Please use GPT-3.5 for evaluation (recommended). If you don't have api, you may try other LLM assisted evaluation. Both example are provided in `R-Bench-Script.ipynb`.
+
+The `msg` for MCQ/VQA/CAP task are:
+
+```
+    if ans_file['type'][num]=='MCQ':
+        for i in range(5):
+            msg = f'''You will now be provided with a question [{question}] and a set of options [{answers}] with option [{correct_ans}] being the correct answer.
+            Additionally, there will be an answer [{answer}] provided by a respondent. Please determine whether the respondent's answer is correct considering the context of the question.
+            Even if the word choice is not completely the same, you can decide based on the given options and see whether the one in the answer is close enough to the given correct answer
+            The result is 1 if the answer is correct and else the result is 0. Please only provide the result in the following format: Score:'''
+            ...
 
 
+    elif ans_file['type'][num]=='VQA':
+        for i in range(5):
+            msg= f'''Given the question [{question}], evaluate whether the response [{answer}] completely matches the correct answer [{correct_ans}]. 
+            First, check the response and please rate score 0 if the response is not a valid answer.
+            Please rate score 2 if the response completely or almost completely matches the correct answer on completeness, accuracy, and relevance. 
+            Please rate score 1 if the response partly matches the correct answer on completeness, accuracy, and relevance.
+            Please rate score 0 if the response doesn't match the correct answer on completeness, accuracy, and relevance at all.
+            Please only provide the result in the following format: Score:'''
+            ...
+
+    elif ans_file['type'][num]=='CAP':
+        corrects=eval(correct_ans)
+        for correct in corrects:
+            msg= f'''Evaluate whether the sentence [{answer}] completely matches the correct answer [{correct}]. 
+            First, check the response and please rate score 0 if the response is not a valid answer.
+            Please rate score 2 if the response completely or almost completely matches the correct answer on completeness, accuracy, and relevance. 
+            Please rate score 1 if the response partly matches the correct answer on completeness, accuracy, and relevance.
+            Please rate score 0 if the response doesn't match the correct answer on completeness, accuracy, and relevance at all.
+            Please only provide the result in the following format: Score:'''
+            ...
+```
+
+#### Show final result
+
+Your final result will be two table, representing absolute/relative robustness in multiple dimension. Like:
+
+| Task:     | MCQ         | VQA       | CAP         |         |         |             |          |
+| Strength: | high        | mid       | low         |         |         |             |          |
+| Step:     | Environment | Camera    | Analog      | Source  | Channel | Receive     | Enhance  |
+| Group:    | Blur        | Luminance | Chrominance | Spatial | Noise   | Compression | Wild     |
 
 
+## Contact
+Feel free to contact the R-Bench team for queries.
+```
+Chunyi Li, lcysyzxdxc@sjtu.edu.cn, @lcysyzxdxc
+```
+
+## Citation
+If you find our work interesting, please feel free to cite our paper:
+```
+@misc{li2024rbench,
+    title={R-Bench: Are your Large Multimodal Model Robust to Real-world Corruptions?},
+    author={Chunyi Li and Jianbo Zhang and Zicheng Zhang and Haoning Wu and Yuan Tian and Wei Sun and Guo Lu and Xiaohong Liu and Xiongkuo Min and Weisi Lin and Guangtao Zhai},
+    year={2024},
+    eprint={2410.05474},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
